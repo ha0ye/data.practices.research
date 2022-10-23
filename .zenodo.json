@@ -1,5 +1,5 @@
 {
-  "title": "Data Organization in Spreadsheets",
+  "title": "Data Practices for Research",
   "version": "1.1.6",
   "creators": [
     {
@@ -8,14 +8,16 @@
       "orcid": "0000-0002-8630-1458"
     }
   ],
-  "description": "This workshop guides researchers on organizing tabular data in order to streamline later analysis in Excel, R, or the statistical program of their choice. Attendees will gain an understanding of the principles and practices in project organization, file naming, and structuring tidy data.",
+  "description": "This workshop guides researchers on organizing data in their projects. Attendees will gain an understanding of the principles and practices in project organization, file naming, structuring tabular data for later analysis, and sharing practices.",
   "keywords": [
     "Open Educational Resources",
     "Research Support Skills",
     "Research Data Management",
     "Spreadsheet",
     "Workshop",
-    "Data"
+    "Data",
+    "Metadata",
+    "Data Sharing"
   ],
   "license": "CC-BY-4.0",
   "upload_type": "lesson"

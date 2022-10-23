@@ -1,5 +1,5 @@
-Package: data.organization
-Title: Data Organization in Spreadsheets
+Package: data.practices.research
+Title: Data Practices for Research
 Version: 1.1.6
 Authors@R: 
     person(given = "Hao",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "hao.ye@weecology.org",
            comment = c(ORCID = "0000-0002-8630-1458"))
-Description: This workshop guides researchers on organizing tabular data in order to streamline later analysis in Excel, R, or the statistical program of their choice. Attendees will gain an understanding of the principles and practices in project organization, file naming, and structuring tidy data.
+Description: This workshop guides researchers on organizing data in their projects. Attendees will gain an understanding of the principles and practices in project organization, file naming, structuring tabular data for later analysis, and sharing practices.
 License: CC BY 4.0
 Imports:
     dplyr, 
@@ -28,4 +28,4 @@ Depends:
 learningOutcomes: * implement recommended practices for file and folder organization in projects
  * use and apply file naming conventions
  * understand the principles of tidy data for structuring tabular data
-X-schema.org-keywords: Open Educational Resources, Research Support Skills, Research Data Management, Spreadsheet, Workshop, Data
+X-schema.org-keywords: Open Educational Resources, Research Support Skills, Research Data Management, Spreadsheet, Workshop, Data, Metadata, Data Sharing

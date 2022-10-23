@@ -15,15 +15,17 @@ knitr::opts_chunk$set(
 
 ```{r, include = FALSE}
 
-lesson_title <- "Data Organization in Spreadsheets"
-lesson_description <- "This workshop guides researchers on organizing tabular data in order to streamline later analysis in Excel, R, or the statistical program of their choice. Attendees will gain an understanding of the principles and practices in project organization, file naming, and structuring tidy data."
+lesson_title <- "Data Practices for Research"
+lesson_description <- "This workshop guides researchers on organizing data in their projects. Attendees will gain an understanding of the principles and practices in project organization, file naming, structuring tabular data for later analysis, and sharing practices."
 lesson_version <- "1.1.6"
 lesson_keywords <- c("Open Educational Resources",
                      "Research Support Skills",
                      "Research Data Management", 
                      "Spreadsheet",
                      "Workshop", 
-                     "Data")
+                     "Data", 
+                     "Metadata", 
+                     "Data Sharing")
 
 folder_name <- basename(usethis::proj_get())
 package_name <- gsub("-", ".", folder_name)
@@ -58,8 +60,7 @@ jsonlite::write_json(cite_data, ".zenodo.json",
 # `r lesson_title`
 
 <!-- badges: start -->
-[![GitHub Actions pkgdown workflow](https://github.com/uf-repro/data-organization/workflows/pkgdown/badge.svg)](https://github.com/uf-repro/data-organization/actions?query=workflow%3Apkgdown)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3892183.svg)](https://doi.org/10.5281/zenodo.3892183)
+[![GitHub Actions pkgdown workflow](https://github.com/ha0ye/data-practices-research/workflows/pkgdown/badge.svg)](https://github.com/ha0ye/data-practices-research/actions?query=workflow%3Apkgdown)
 
 <!-- badges: end -->
 

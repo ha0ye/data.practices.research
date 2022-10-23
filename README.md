@@ -1,23 +1,21 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Data Organization in Spreadsheets
+# Data Practices for Research
 
 <!-- badges: start -->
 
 [![GitHub Actions pkgdown
-workflow](https://github.com/uf-repro/data-organization/workflows/pkgdown/badge.svg)](https://github.com/uf-repro/data-organization/actions?query=workflow%3Apkgdown)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3892183.svg)](https://doi.org/10.5281/zenodo.3892183)
+workflow](https://github.com/ha0ye/data-practices-research/workflows/pkgdown/badge.svg)](https://github.com/ha0ye/data-practices-research/actions?query=workflow%3Apkgdown)
 
 <!-- badges: end -->
 
 ## Description
 
-This workshop guides researchers on organizing tabular data in order to
-streamline later analysis in Excel, R, or the statistical program of
-their choice. Attendees will gain an understanding of the principles and
-practices in project organization, file naming, and structuring tidy
-data.
+This workshop guides researchers on organizing data in their projects.
+Attendees will gain an understanding of the principles and practices in
+project organization, file naming, structuring tabular data for later
+analysis, and sharing practices.
 
 ## Learning Outcomes
 
