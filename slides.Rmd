@@ -1,5 +1,5 @@
 ---
-title: "Data Organization in Spreadsheets"
+title: "Data Organization for Researchers"
 author: "Hao Ye"
 institute: "Health Science Center Libraries, University of Florida"
 date: "(updated: `r Sys.Date()`)"
@@ -50,20 +50,65 @@ class: inverse, center, middle
 ### (updated: `r Sys.Date()`)
 
 ---
+class: inverse, center, middle
 
-# Motivations
+# Campus Resources
 
-Why should you care about this topic?
+---
+# Academic Research Consulting & Services
+
+https://arcs.uflib.ufl.edu/
+
+Consultation and Guidance on Doing Research:
+* data management
+* open access (and NIH Public Access Policy)
+* data science and GIS
+* HiPerGator access for student research (without other funding)
+
+---
+# UF Research Computing
+
+https://www.rc.ufl.edu/get-started/
+
+### HiPerGator
+* UF super computer, including nVidia GPUs for machine learning
+
+### ResVault
+* secure computing environment for working with restricted and confidential data
+
+---
+# Data Science / Computing at UF
+
+[UF Carpentries](https://www.uf-carpentries.org/) offers short workshops on basic computing skills.
+
+[UF R-Gators](http://www.r-gators.com/) affinity club for R users
+
+[Stats Courses](https://ufstatscourses.shinyapps.io/shiny_tutorial/) - schedule of stats courses at UF, maintained by Denis Valle
+
+---
+# Motivating Scenarios
 
 --
 
-Organizing your projects and data will:
-* improve reproducibility
-* enable you to scale up projects
-* make it easier to build off it later
---
+1. You finished your paper draft and 2 weeks later your PI wants you to change one of the figures from a scatterplot to a histogram.
 
-  **this includes yourself at a later point!**
+--
+2. You submitted your paper and 2 months later, reviewers want a secondary analysis to check some propert of the data.
+
+--
+3. You graduated and 2 years layer, you are writing a grant that will combine your data from a past project with what you are working on now.
+
+---
+
+# Why be organized?
+
+* Make it easy to switch between projects.
+* Be confident that your results are correct.  
+  (or if not correct, at least you know **how** you got your results)
+* Work more effectively with others.
+  (including yourself in the future)
+* Share your data and results with others.  
+  (soon to be required as part of [Nelson 2022 OSTP memo](https://www.whitehouse.gov/ostp/news-updates/2022/08/25/ostp-issues-guidance-to-make-federally-funded-research-freely-available-without-delay/))
 
 ---
 
@@ -82,26 +127,34 @@ class: inverse, center, middle
 
 # Principles
 
-* You don't want to spend time looking for stuff.
-  Neither do your collaborators.
-* Keep all files associated with a project in **one** place.
-  - project description
-  - data
-  - code
-  - figures
-  - manuscript
+* Don't spend time looking for stuff.
+* Be consistent in keeping files associated with a project in **one** folder.
+
+--
+### Why a folder?
+
+* A folder can store multiple files and sub-folders.
+* A folder is the basic unit for setting shared permissions on e.g. Google Drive / GitHub / Dropbox
+
+---
+# What to include in your project folder
+
+* project `README`
+* data (or as little instructions as needed to get the data)
+* code
+* figures
+* manuscript
 
 ---
 
-# Recommendations
+# The `README`
 
-* Use sub-folders to organize data, figures, manuscript, etc.
-  - separate raw and processed data
-* Write `README` files to document:
-  - who did the experiments
-  - data formatting
-    (more on this later)
-  - when/how/why
+* summary of the project & goals (the why)
+* guidance for how to use the project (the how)
+  - datasets, results, paper file
+* who did the experiments
+* formatting of the data
+* funding acknowledgments / how to cite
 
 ---
 
@@ -121,22 +174,14 @@ project/
 * more examples in [Marwick et al. 2018 "Packaging Data Analytical Work Reproducibly Using R (and Friends)"](https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1375986)
 
 ---
-# A Project README
-
-* short summary of project & goals
-* guidance for interacting with the project
-  - (software) how to install and run it
-  - (paper) which file is the final report/paper
-  - (data) the summary figure or main file
-* description of folders (if non-standard)
-* funding acknowledgments / how to cite
-
----
 # Summary
 
-* keep the project files and **information about the project** together in the same place
-* give simple instructions to engage with your project
-  - think of it as a free sample that helps people decide if your project is useful to them!
+* keep **information about the project**  
+  in the same place as the **files**
+* store important details for later usage
+  - e.g. writing a conference abstract
+  - make it easy for teammates to help
+  - make it easy for your PI to find things
 
 ---
 class: inverse, center, middle

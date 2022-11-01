@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">Data Organization in Spreadsheets and R</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.7</span>
       </span>
     </div>
 
@@ -41,7 +41,7 @@
   </a>
 </li>
 <li>
-  <a href="https://github.com/uf-repro/data-organization/" class="external-link">
+  <a href="https://github.com/ha0ye/data.practices.research/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -59,36 +59,71 @@
     </div>
 
 <div id="syllabus" class="section level1">
-<p>Hao Ye Health Science Center Libraries, University of Florida (updated: 2022-10-23)</p>
+
+<p>Hao Ye Health Science Center Libraries, University of Florida (updated: 2022-11-01)</p>
 <div class="section level2">
 <h2 id="intro">Intro<a class="anchor" aria-label="anchor" href="#intro"></a></h2>
-<ul><li>Motivations Why should you care about this topic? Organizing your projects and data will:<ul><li>improve reproducibility</li>
-<li>enable you to scale up projects</li>
-<li>make it easier to build off it later <strong>this includes yourself at a later point!</strong>
-</li>
+</div>
+<div class="section level2">
+<h2 id="campus-resources">Campus Resources<a class="anchor" aria-label="anchor" href="#campus-resources"></a></h2>
+<ul><li>Academic Research Consulting &amp; Services <a href="https://arcs.uflib.ufl.edu/" class="external-link uri">https://arcs.uflib.ufl.edu/</a> Consultation and Guidance on Doing Research:
+<ul><li>data management</li>
+<li>open access (and NIH Public Access Policy)</li>
+<li>data science and GIS</li>
+<li>HiPerGator access for student research (without other funding)</li>
 </ul></li>
-<li>Learning Outcomes By the end of the workshop, participants will be able to:<ul><li>implement recommended practices for file and folder organization in projects</li>
+<li>UF Research Computing <a href="https://www.rc.ufl.edu/get-started/" class="external-link uri">https://www.rc.ufl.edu/get-started/</a> ### HiPerGator
+<ul><li>UF super computer, including nVidia GPUs for machine learning ### ResVault</li>
+<li>secure computing environment for working with restricted and confidential data</li>
+</ul></li>
+<li>Data Science / Computing at UF <a href="https://www.uf-carpentries.org/" class="external-link">UF Carpentries</a> offers short workshops on basic computing skills. <a href="http://www.r-gators.com/" class="external-link">UF R-Gators</a> affinity club for R users <a href="https://ufstatscourses.shinyapps.io/shiny_tutorial/" class="external-link">Stats Courses</a> - schedule of stats courses at UF, maintained by Denis Valle</li>
+<li>Motivating Scenarios
+<ol style="list-style-type: decimal"><li>You finished your paper draft and 2 weeks later your PI wants you to change one of the figures from a scatterplot to a histogram.</li>
+<li>You submitted your paper and 2 months later, reviewers want a secondary analysis to check some propert of the data.</li>
+<li>You graduated and 2 years layer, you are writing a grant that will combine your data from a past project with what you are working on now.</li>
+</ol></li>
+<li>Why be organized?
+<ul><li>Make it easy to switch between projects.</li>
+<li>Be confident that your results are correct.<br>
+(or if not correct, at least you know <strong>how</strong> you got your results)</li>
+<li>Work more effectively with others. (including yourself in the future)</li>
+<li>Share your data and results with others.<br>
+(soon to be required as part of <a href="https://www.whitehouse.gov/ostp/news-updates/2022/08/25/ostp-issues-guidance-to-make-federally-funded-research-freely-available-without-delay/" class="external-link">Nelson 2022 OSTP memo</a>)</li>
+</ul></li>
+<li>Learning Outcomes By the end of the workshop, participants will be able to:
+<ul><li>implement file and folder organization in research projects</li>
 <li>use and apply file naming conventions</li>
-<li>understand the principles of tidy data for structuring tabular data</li>
+<li>understand best practices in structuring data and metadata</li>
+<li>share data in specialist and generalist repositories</li>
 </ul></li>
 </ul></div>
 <div class="section level2">
 <h2 id="file-and-folder-organization">File and Folder Organization<a class="anchor" aria-label="anchor" href="#file-and-folder-organization"></a></h2>
-<ul><li>Principles<ul><li>You don’t want to spend time looking for stuff. Neither do your collaborators.</li>
-<li>Keep all files associated with a project in <strong>one</strong> place.<ul><li>project description</li>
-<li>data</li>
+<ul><li>Principles
+<ul><li>Don’t spend time looking for stuff.</li>
+<li>Be consistent in keeping files associated with a project in <strong>one</strong> folder. ### Why a folder?</li>
+<li>A folder can store multiple files and sub-folders.</li>
+<li>A folder is the basic unit for setting shared permissions on e.g. Google Drive / GitHub / Dropbox</li>
+</ul></li>
+<li>What to include in your project folder
+<ul><li>project <code>README</code>
+</li>
+<li>data (or as little instructions as needed to get the data)</li>
 <li>code</li>
 <li>figures</li>
 <li>manuscript</li>
 </ul></li>
+<li>The <code>README</code>
+<ul><li>summary of the project &amp; goals (the why)</li>
+<li>guidance for how to use the project (the how)
+<ul><li>datasets, results, paper file</li>
 </ul></li>
-<li>Recommendations<ul><li>Use sub-folders to organize data, figures, manuscript, etc.<ul><li>separate raw and processed data</li></ul></li>
-<li>Write <code>README</code> files to document:<ul><li>who did the experiments</li>
-<li>data formatting (more on this later)</li>
-<li>when/how/why</li>
+<li>who did the experiments</li>
+<li>formatting of the data</li>
+<li>funding acknowledgments / how to cite</li>
 </ul></li>
-</ul></li>
-<li>Structuring a Project Folder<pre class="hljs remark-code">
+<li>Structuring a Project Folder
+<pre class="hljs remark-code">
 project/
 ├── data/
 ├── figures/
@@ -98,26 +133,28 @@ project/
 └── README.md
 </pre>
 <ul><li>more examples in <a href="https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1375986" class="external-link">Marwick et al. 2018 “Packaging Data Analytical Work Reproducibly Using R (and Friends)”</a>
-</li></ul></li>
-<li>A Project README<ul><li>short summary of project &amp; goals</li>
-<li>guidance for interacting with the project<ul><li>(software) how to install and run it</li>
-<li>(paper) which file is the final report/paper</li>
-<li>(data) the summary figure or main file</li>
+</li>
 </ul></li>
-<li>description of folders (if non-standard)</li>
-<li>funding acknowledgments / how to cite</li>
+<li>Summary
+<ul><li>keep <strong>information about the project</strong><br>
+in the same place as the <strong>files</strong>
+</li>
+<li>store important details for later usage
+<ul><li>e.g. writing a conference abstract</li>
+<li>make it easy for teammates to help</li>
+<li>make it easy for your PI to find things</li>
 </ul></li>
-<li>Summary<ul><li>keep the project files and <strong>information about the project</strong> together in the same place</li>
-<li>give simple instructions to engage with your project<ul><li>think of it as a free sample that helps people decide if your project is useful to them!</li></ul></li>
 </ul></li>
 </ul></div>
 <div class="section level2">
 <h2 id="naming-things">Naming Things<a class="anchor" aria-label="anchor" href="#naming-things"></a></h2>
-<ul><li>Principles Choose names for file that:<ul><li>are machine-readable</li>
+<ul><li>Principles Choose names for file that:
+<ul><li>are machine-readable</li>
 <li>are human-readable</li>
 <li>sort nicely</li>
 </ul></li>
-<li>Examples (NOT SO GOOD)<pre class="hljs remark-code">
+<li>Examples (NOT SO GOOD)
+<pre class="hljs remark-code">
 Hao's data with spaces &amp; punctuation.xlsx
 01.R
 figure 1.png
@@ -125,7 +162,8 @@ fig 2.jpg
 report-final FINAL HY-comments ver3.docx
 </pre>
 </li>
-<li>Examples (BETTER)<pre class="hljs remark-code">
+<li>Examples (BETTER)
+<pre class="hljs remark-code">
 hao_learned_about_underscores.xlsx
 01_import-data.R
 fig01_scatterplot_length-vs-interest.png
@@ -133,7 +171,9 @@ fig02_histogram_talk-attendance.png
 yearly-report_2020-06-01_hy-comments.docx
 </pre>
 </li>
-<li>Machine-Readable<ul><li>Avoid spaces, punctuation, accented characters, mixing CAPS and lowercase.<ul><li>computers can struggle with these</li>
+<li>Machine-Readable
+<ul><li>Avoid spaces, punctuation, accented characters, mixing CAPS and lowercase.
+<ul><li>computers can struggle with these</li>
 <li>simple names are easier to remember</li>
 </ul></li>
 <li>Separate words with hyphens <code>'-'</code>
@@ -141,70 +181,105 @@ yearly-report_2020-06-01_hy-comments.docx
 <li>Separate groupings with underscores <code>'_'</code>
 </li>
 </ul></li>
-<li>Human-Readable<ul><li>Filenames do not need to be 100% thorough</li>
+<li>Human-Readable
+<ul><li>Filenames do not need to be 100% thorough</li>
 <li>Filenames <em>should</em> help you find it later when you need to</li>
-<li>For code, use nouns for data objects and verbs for actions:<ul><li><code>load-data.R</code></li>
+<li>For code, use nouns for data objects and verbs for actions:
+<ul><li><code>load-data.R</code></li>
 <li><code>data_mtcars.csv</code></li>
 <li><code>make-scatterplot.R</code></li>
 </ul></li>
 </ul></li>
-<li>Using Default Ordering<ul><li>Files can be sorted alphabetically (and usually)<ul><li>we can make use of this!</li></ul></li>
-<li>Left-pad with numbers to impose an order on files:<ul><li>e.g. <code>01_load-data.R</code>, <code>02_process-data.R</code>
-</li></ul></li>
-<li>Use RFC-3339 for dates:<ul><li>
-<code>YYYY-MM-DD</code> format (alphabetical sorting makes it chronological, too!) <img src="https://imgs.xkcd.com/comics/iso_8601_2x.png" width="60%"><a href="https://xkcd.com/1179/" class="external-link">xkcd/1179</a>
-</li></ul></li>
+<li>Using Default Ordering
+<ul><li>Files can be sorted alphabetically (and usually)
+<ul><li>we can make use of this!</li>
 </ul></li>
-<li>Example<pre class="hljs remark-code">
+<li>Left-pad with numbers to impose an order on files:
+<ul><li>e.g. <code>01_load-data.R</code>, <code>02_process-data.R</code>
+</li>
+</ul></li>
+<li>Use RFC-3339 for dates:
+<ul><li>
+<code>YYYY-MM-DD</code> format (alphabetical sorting makes it chronological, too!) <img src="https://imgs.xkcd.com/comics/iso_8601_2x.png" width="60%"><a href="https://xkcd.com/1179/" class="external-link">xkcd/1179</a>
+</li>
+</ul></li>
+</ul></li>
+<li>Example
+<pre class="hljs remark-code">
 siteA_2020-04-01_animal-count.xls
 siteA_2020-05-01_animal-count.xls
 siteB_2020-04-01_animal-count.xls
 siteB_2020-04-01_weather.dat
 siteB_2020-05-01_animal-count.xls
 siteB_2020-05-01_weather.dat
-</pre>files are organized by site -&gt; date -&gt; type of measurement</li>
-<li>Summary<ul><li>you probably use names to organize files already!<ul><li>use these tips to improve your system</li></ul></li>
+</pre>
+files are organized by site -&gt; date -&gt; type of measurement</li>
+<li>Summary
+<ul><li>you probably use names to organize files already!
+<ul><li>use these tips to improve your system</li>
+</ul></li>
 <li>consistency is important!</li>
 </ul></li>
 </ul></div>
 <div class="section level2">
 <h2 id="structuring-tabular-data-eg-spreadsheets">Structuring Tabular Data (e.g. spreadsheets)<a class="anchor" aria-label="anchor" href="#structuring-tabular-data-eg-spreadsheets"></a></h2>
-<ul><li>Principles Make it easy for anyone to work with your data:<ul><li>Structure data for analysis (i.e. “Tidy Data”)</li>
+<ul><li>Principles Make it easy for anyone to work with your data:
+<ul><li>Structure data for analysis (i.e. “Tidy Data”)</li>
 <li>Don’t use text-formatting to store information!</li>
 <li>Don’t modify raw data</li>
 <li>Include a Data Dictionary</li>
 </ul></li>
-<li>Tidy Data Properties of <em>tidy data</em>:<ul><li>each column is a variable</li>
+<li>Tidy Data Properties of <em>tidy data</em>:
+<ul><li>each column is a variable</li>
 <li>each row is an observation</li>
 <li>each table is a single observational unit</li>
 </ul></li>
-<li>Common issues<ul><li>data values are stored in column headers<ul><li>e.g. treatment values, dates of sampling</li></ul></li>
+<li>Common issues
+<ul><li>data values are stored in column headers
+<ul><li>e.g. treatment values, dates of sampling</li>
+</ul></li>
 <li>multiple variables are stored in one column</li>
 <li>variables are stored in rows and columns</li>
-<li>“1 observational unit = 1 table” is violated<ul><li>e.g. subject info and measurements are stored in the same table</li></ul></li>
+<li>“1 observational unit = 1 table” is violated
+<ul><li>e.g. subject info and measurements are stored in the same table</li>
 </ul></li>
-<li>Example: column labels encoding data<ul><li>wide-format data |name|Thin Mints|Samoas|Tagalongs| |–|–|–|–| |A|4|0|0| |B|2|0|2| |c|0|3|1|</li></ul></li>
-<li>Example: re-structured columns<ul><li>long-format data |name|flavor|boxes| |–|–|–| |A|Thin Mints|4| |B|Thin Mints|2| |B|Tagalongs|2| |C|Samoas|3| |C|Tagalongs|1|</li></ul></li>
+</ul></li>
+<li>Example: column labels encoding data
+<ul><li>wide-format data |name|Thin Mints|Samoas|Tagalongs| |–|–|–|–| |A|4|0|0| |B|2|0|2| |c|0|3|1|</li>
+</ul></li>
+<li>Example: re-structured columns
+<ul><li>long-format data |name|flavor|boxes| |–|–|–| |A|Thin Mints|4| |B|Thin Mints|2| |B|Tagalongs|2| |C|Samoas|3| |C|Tagalongs|1|</li>
+</ul></li>
 <li>Example: multiple observational units |name|address|flavor|boxes| |–|–|–|–| |A|3828 Piermont Dr|Thin Mints|4| |B|221B Baker St|Thin Mints|2| |B|221B Baker St|Tagalongs|2| |C|124 Conch St|Samoas|3| |C|124 Conch St|Tagalongs|1|</li>
 <li>Example: separate tables .pull-left[ |name|flavor|boxes| |–|–|–| |A|Thin Mints|4| |B|Thin Mints|2| |B|Tagalongs|2| |C|Samoas|3| |C|Tagalongs|1|] .pull-right[ |name|address| |–|–| |A|3828 Piermont Dr| |B|221B Baker St| |C|124 Conch St|]</li>
-<li>Spreadsheet Formatting<ul><li>for missing data, use empty cells or <code>'NA'</code><ul><li><em>be careful about <code>'NA'</code> for certain types of data (e.g. country code for “Namibia”)</em></li></ul></li>
+<li>Spreadsheet Formatting
+<ul><li>for missing data, use empty cells or <code>'NA'</code>
+<ul><li><em>be careful about <code>'NA'</code> for certain types of data (e.g. country code for “Namibia”)</em></li>
+</ul></li>
 <li>do NOT space out data with empty rows/columns</li>
 <li>do NOT use text formatting (e.g. bold/italics) to store information</li>
 <li>WATCH OUT: Excel LOVES to convert data into a date format</li>
 </ul></li>
 <li>Example: spreadsheet formatting <img src="spreadsheet_formatting.png" alt="Figure 10 from Broman &amp; Woo “Data Organization in Spreadsheets”, showing a data table with an outlier highlighted in red as an example of bad formatting, and then an alternative where the outlier status is encoded in its own column."> Instead of highlighting the cells with outliers, encode outlier status as its own column.</li>
-<li>Raw Data<ul><li>store raw data for reproducibility<ul><li>copy and modify files instead</li>
+<li>Raw Data
+<ul><li>store raw data for reproducibility
+<ul><li>copy and modify files instead</li>
 <li>and/or use scripts to clean/wrangle raw data</li>
 </ul></li>
-<li>document processing steps in code or text<ul><li>someone else can see what processing was done, and reproduce it</li>
+<li>document processing steps in code or text
+<ul><li>someone else can see what processing was done, and reproduce it</li>
 <li>OpenRefine is a great tool for cleaning messy data (and records the steps for you)!<br><a href="https://uf-repro.github.io/OpenRefine-intro/" class="external-link uri">https://uf-repro.github.io/OpenRefine-intro/</a>
 </li>
 </ul></li>
 </ul></li>
-<li>Data Dictionary<ul><li>define your rows and columns<ul><li>e.g. do rows correspond to:<ul><li>individual subjects</li>
+<li>Data Dictionary
+<ul><li>define your rows and columns
+<ul><li>e.g. do rows correspond to:
+<ul><li>individual subjects</li>
 <li>OR data collection sessions</li>
 <li>OR individual samples from a measurement device</li>
-</ul></li></ul></li>
+</ul></li>
+</ul></li>
 <li>define codes, categories, acronyms</li>
 <li>define relationships between multiple tables</li>
 <li><a href="https://guides.uflib.ufl.edu/datamanagement/metadata" class="external-link">provide metadata details</a></li>
@@ -214,7 +289,9 @@ siteB_2020-05-01_weather.dat
 <div class="section level2">
 <h2 id="thanks">Thanks<a class="anchor" aria-label="anchor" href="#thanks"></a></h2>
 <ul><li>Contact me for additional questions or consultation requests!</li>
-<li>Check back in on the libguide for more modules and contact info:<ul><li><a href="https://guides.uflib.ufl.edu/reproducibility" class="external-link uri">https://guides.uflib.ufl.edu/reproducibility</a></li></ul></li>
+<li>Check back in on the libguide for more modules and contact info:
+<ul><li><a href="https://guides.uflib.ufl.edu/reproducibility" class="external-link uri">https://guides.uflib.ufl.edu/reproducibility</a></li>
+</ul></li>
 </ul></div>
 </div>
 
