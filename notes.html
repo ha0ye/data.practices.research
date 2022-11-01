@@ -78,9 +78,9 @@
 </ul></li>
 <li>Data Science / Computing at UF <a href="https://www.uf-carpentries.org/" class="external-link">UF Carpentries</a> offers short workshops on basic computing skills. <a href="http://www.r-gators.com/" class="external-link">UF R-Gators</a> affinity club for R users <a href="https://ufstatscourses.shinyapps.io/shiny_tutorial/" class="external-link">Stats Courses</a> - schedule of stats courses at UF, maintained by Denis Valle</li>
 <li>Motivating Scenarios
-<ol style="list-style-type: decimal"><li>You finished your paper draft and 2 weeks later your PI wants you to change one of the figures from a scatterplot to a histogram.</li>
-<li>You submitted your paper and 2 months later, reviewers want a secondary analysis to check some propert of the data.</li>
-<li>You graduated and 2 years layer, you are writing a grant that will combine your data from a past project with what you are working on now.</li>
+<ol style="list-style-type: decimal"><li>You finished your paper draft and 3 weeks later your PI wants you to change one of the figures from a scatterplot to a histogram.</li>
+<li>You submitted your paper and 3 months later, reviewers want a secondary analysis to check some propert of the data.</li>
+<li>You graduated and 3 years layer, you are writing a grant that will combine your data from a past project with what you are working on now.</li>
 </ol></li>
 <li>Why be organized?
 <ul><li>Make it easy to switch between projects.</li>
@@ -148,10 +148,13 @@ in the same place as the <strong>files</strong>
 </ul></div>
 <div class="section level2">
 <h2 id="naming-things">Naming Things<a class="anchor" aria-label="anchor" href="#naming-things"></a></h2>
-<ul><li>Principles Choose names for file that:
-<ul><li>are machine-readable</li>
-<li>are human-readable</li>
-<li>sort nicely</li>
+<ul><li>Principles
+<ul><li>You will have LOTS of files.</li>
+<li>You don’t want to spend time opening them to find the right one.
+<ul><li>for a specific subset of data</li>
+<li>for a specific bit of code</li>
+<li>to make changes in just the right spot</li>
+</ul></li>
 </ul></li>
 <li>Examples (NOT SO GOOD)
 <pre class="hljs remark-code">
@@ -172,9 +175,9 @@ yearly-report_2020-06-01_hy-comments.docx
 </pre>
 </li>
 <li>Machine-Readable
-<ul><li>Avoid spaces, punctuation, accented characters, mixing CAPS and lowercase.
-<ul><li>computers can struggle with these</li>
-<li>simple names are easier to remember</li>
+<ul><li>Avoid spaces, punctuation, accented characters, mixing upper and lowercase.
+<ul><li>some computers don’t distinguish between <code>README</code> and <code>readme</code> (others do!)</li>
+<li>simpler names are easier to remember</li>
 </ul></li>
 <li>Separate words with hyphens <code>'-'</code>
 </li>
@@ -191,7 +194,7 @@ yearly-report_2020-06-01_hy-comments.docx
 </ul></li>
 </ul></li>
 <li>Using Default Ordering
-<ul><li>Files can be sorted alphabetically (and usually)
+<ul><li>Files are usually sorted alphabetically
 <ul><li>we can make use of this!</li>
 </ul></li>
 <li>Left-pad with numbers to impose an order on files:
@@ -200,8 +203,7 @@ yearly-report_2020-06-01_hy-comments.docx
 </ul></li>
 <li>Use RFC-3339 for dates:
 <ul><li>
-<code>YYYY-MM-DD</code> format (alphabetical sorting makes it chronological, too!) <img src="https://imgs.xkcd.com/comics/iso_8601_2x.png" width="60%"><a href="https://xkcd.com/1179/" class="external-link">xkcd/1179</a>
-</li>
+<code>YYYY-MM-DD</code> format (alphabetical sorting makes it chronological, too!)</li>
 </ul></li>
 </ul></li>
 <li>Example
@@ -213,12 +215,12 @@ siteB_2020-04-01_weather.dat
 siteB_2020-05-01_animal-count.xls
 siteB_2020-05-01_weather.dat
 </pre>
-files are organized by site -&gt; date -&gt; type of measurement</li>
-<li>Summary
-<ul><li>you probably use names to organize files already!
-<ul><li>use these tips to improve your system</li>
-</ul></li>
-<li>consistency is important!</li>
+filename format: <code>{site}_{date}_{type of data}</code>
+</li>
+<li>Summary Choose names for file that:
+<ul><li>don’t cause issues for computer</li>
+<li>are descriptive for humans</li>
+<li>sort nicely Be consistent! (at least within an individual project)</li>
 </ul></li>
 </ul></div>
 <div class="section level2">
@@ -226,7 +228,7 @@ files are organized by site -&gt; date -&gt; type of measurement</li>
 <ul><li>Principles Make it easy for anyone to work with your data:
 <ul><li>Structure data for analysis (i.e. “Tidy Data”)</li>
 <li>Don’t use text-formatting to store information!</li>
-<li>Don’t modify raw data</li>
+<li>Keep a copy of raw data for reproducibility</li>
 <li>Include a Data Dictionary</li>
 </ul></li>
 <li>Tidy Data Properties of <em>tidy data</em>:
@@ -235,13 +237,15 @@ files are organized by site -&gt; date -&gt; type of measurement</li>
 <li>each table is a single observational unit</li>
 </ul></li>
 <li>Common issues
-<ul><li>data values are stored in column headers
+<ul><li>storing data values in column headers
 <ul><li>e.g. treatment values, dates of sampling</li>
 </ul></li>
-<li>multiple variables are stored in one column</li>
-<li>variables are stored in rows and columns</li>
-<li>“1 observational unit = 1 table” is violated
-<ul><li>e.g. subject info and measurements are stored in the same table</li>
+<li>storing variables in rows
+<ul><li>when adding more data, you should only increase # of rows<br>
+(the columsn are fixed)</li>
+</ul></li>
+<li>keeping too much data in one table
+<ul><li>e.g. different types of measurements</li>
 </ul></li>
 </ul></li>
 <li>Example: column labels encoding data
@@ -261,20 +265,20 @@ files are organized by site -&gt; date -&gt; type of measurement</li>
 <li>WATCH OUT: Excel LOVES to convert data into a date format</li>
 </ul></li>
 <li>Example: spreadsheet formatting <img src="spreadsheet_formatting.png" alt="Figure 10 from Broman &amp; Woo “Data Organization in Spreadsheets”, showing a data table with an outlier highlighted in red as an example of bad formatting, and then an alternative where the outlier status is encoded in its own column."> Instead of highlighting the cells with outliers, encode outlier status as its own column.</li>
-<li>Raw Data
+<li>Data Files
 <ul><li>store raw data for reproducibility
-<ul><li>copy and modify files instead</li>
+<ul><li>save a separate cleaned-up version</li>
 <li>and/or use scripts to clean/wrangle raw data</li>
 </ul></li>
 <li>document processing steps in code or text
-<ul><li>someone else can see what processing was done, and reproduce it</li>
+<ul><li>someone else can reproduce your data workflow</li>
 <li>OpenRefine is a great tool for cleaning messy data (and records the steps for you)!<br><a href="https://uf-repro.github.io/OpenRefine-intro/" class="external-link uri">https://uf-repro.github.io/OpenRefine-intro/</a>
 </li>
 </ul></li>
 </ul></li>
 <li>Data Dictionary
 <ul><li>define your rows and columns
-<ul><li>e.g. do rows correspond to:
+<ul><li>e.g. Are the rows …
 <ul><li>individual subjects</li>
 <li>OR data collection sessions</li>
 <li>OR individual samples from a measurement device</li>
@@ -282,15 +286,112 @@ files are organized by site -&gt; date -&gt; type of measurement</li>
 </ul></li>
 <li>define codes, categories, acronyms</li>
 <li>define relationships between multiple tables</li>
-<li><a href="https://guides.uflib.ufl.edu/datamanagement/metadata" class="external-link">provide metadata details</a></li>
 </ul></li>
 <li>Example Data Dictionary .compact-table[ |name|plot_name|group|description|type| |–|–|–|–|–| |mouse|Mouse|demographic|Animal identifier|text| |sex|Sex|demographic|Male (M) or Female (F)|factor| |sac_date|Date of sac|demographic|Date mouse was sacrificed|date| |partial_inflation|Partial inflation|clinical|Indicates if mouse showed partial pancreatic inflation|logical| |coat_color|Coat color|demographic|Coat color, by visual inspection|factor| |crumblers|Crumblers|clinical|Indicates if mouse stored food in their bedding|logical| |diet_days|Days on diet|clinical|Number of days on high-fat diet|numeric|] (modified from Figure 9 of Broman &amp; Woo “Data Organization in Spreadsheets”)</li>
 </ul></div>
 <div class="section level2">
+<h2 id="sharing-data">Sharing Data<a class="anchor" aria-label="anchor" href="#sharing-data"></a></h2>
+<ul><li>Principles
+<ul><li>data sharing is becoming more standardized
+<ul><li>to be required by most Federal funders (if not already)</li>
+</ul></li>
+<li>data sharing IS extra work
+<ul><li>but much less if you are already organized</li>
+<li>doing it WELL can increase your impact<br>
+(other researchers can use it, or build collaborations based on shared use of data)</li>
+</ul></li>
+</ul></li>
+<li>FAIR
+<ul><li>Guidelines for <em>Scientific Data</em> (but which also apply to other outputs)
+<ul><li>Findable</li>
+<li>Accessible</li>
+<li>Interoperable</li>
+<li>Reusable</li>
+</ul></li>
+</ul></li>
+<li>Findable
+<ul><li>Can humans and machines find the data?
+<ul><li>use metadata that <em>describes</em> the content</li>
+<li>use metadata that helps people <em>find</em> it <strong>Metadata</strong> is data that describes or gives information about other data e.g. <em>hashtags</em> indicate that a tweet is about a particular subject (such as a conference), and enable others to easily find many tweets about that subject</li>
+</ul></li>
+</ul></li>
+<li>Accessible
+<ul><li>there should be minimal barriers
+<ul><li>e.g. no proprietary interfaces or software required</li>
+<li>share your data in a dedicated repository</li>
+</ul></li>
+<li>use established methods to authenticate access to protected or private data</li>
+</ul></li>
+<li>DOI = Digital Object Identifier
+<ul><li>format
+<ul><li><code>10.NNNN/{suffix}</code></li>
+<li>
+<code>NNNN</code> identifies the registrant</li>
+<li>
+<code>{suffix}</code> identifies the object</li>
+<li>e.g. <code>10.5281/zenodo.3892183</code>
+</li>
+</ul></li>
+</ul></li>
+<li>DOI Properties
+<ul><li>DOIs are permanent
+<ul><li>the object and metadata record are archived</li>
+</ul></li>
+<li>unambiguous
+<ul><li>each DOI links to a unique object, and will only ever link to that object</li>
+</ul></li>
+</ul></li>
+<li>Interoperable
+<ul><li>use a common, shared file format</li>
+<li>use a data standard for organizing and structuring data
+<ul><li>it is possible that no such standard exists for your field!</li>
+</ul></li>
+<li>use a metadata standard for attributes
+<ul><li>e.g. <a href="https://eml.ecoinformatics.org/" class="external-link">Ecological Metadata Language</a>
+</li>
+</ul></li>
+</ul></li>
+<li>Reusable
+<ul><li>help researchers identify whether it is suitable for their usage</li>
+<li>use a legal license that enables re-use
+<ul><li>e.g. CC-BY or CC-0</li>
+<li>
+<strong>don’t use a code license</strong>, e.g. MIT</li>
+</ul></li>
+<li>include attribution and a description of how to cite the data</li>
+</ul></li>
+<li>FREE Repositories
+<ul><li>Zenodo - <a href="https://zenodo.org/" class="external-link uri">https://zenodo.org/</a>
+</li>
+<li>figshare - <a href="https://figshare.com" class="external-link uri">https://figshare.com</a>
+</li>
+<li>OSF - <a href="https://osf.io/" class="external-link uri">https://osf.io/</a> ### Maybe free if covered by a journal</li>
+<li>Dryad - <a href="https://datadryad.org" class="external-link uri">https://datadryad.org</a>
+</li>
+</ul></li>
+<li>GitHub GitHub is a platform designed primarily for collaborative open source software development.
+<ul><li>Many researchers use it to store data or research projects, and to collaborate!<br><a href="https://uf-repro.github.io/friendly-github-intro/" class="external-link uri">https://uf-repro.github.io/friendly-github-intro/</a>
+</li>
+<li>GitHub is not <strong>archival</strong>.
+<ul><li>No guarantee for continued free access</li>
+<li>The owner of the data or code could change it, move it, or delete it</li>
+</ul></li>
+</ul></li>
+<li>Summary When in doubt, look at example publications in your field!
+<ul><li>What keywords did they use?</li>
+<li>How did they structure the data?
+<ul><li>if the data is not tidy, you don’t have to follow along</li>
+<li>using the same or similar column labels could be effective</li>
+</ul></li>
+</ul></li>
+</ul></div>
+<div class="section level2">
 <h2 id="thanks">Thanks<a class="anchor" aria-label="anchor" href="#thanks"></a></h2>
-<ul><li>Contact me for additional questions or consultation requests!</li>
-<li>Check back in on the libguide for more modules and contact info:
-<ul><li><a href="https://guides.uflib.ufl.edu/reproducibility" class="external-link uri">https://guides.uflib.ufl.edu/reproducibility</a></li>
+<ul><li>Contact me for additional questions or consultation requests.
+<ul><li><a href="mailto:haoye@ufl.edu" class="email">haoye@ufl.edu</a></li>
+</ul></li>
+<li>Check my libguide for other lesson materials.
+<ul><li><a href="https://guides.uflib.ufl.edu/reproducibility/lessons" class="external-link uri">https://guides.uflib.ufl.edu/reproducibility/lessons</a></li>
 </ul></li>
 </ul></div>
 </div>
