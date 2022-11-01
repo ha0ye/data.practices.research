@@ -60,7 +60,7 @@ jsonlite::write_json(cite_data, ".zenodo.json",
 # `r lesson_title`
 
 <!-- badges: start -->
-[![GitHub Actions pkgdown workflow](https://github.com/ha0ye/data-practices-research/workflows/pkgdown/badge.svg)](https://github.com/ha0ye/data-practices-research/actions?query=workflow%3Apkgdown)
+[![GitHub Actions pkgdown workflow](https://github.com/ha0ye/data.practices.research/workflows/pkgdown/badge.svg)](https://github.com/ha0ye/data.practices.research/actions?query=workflow%3Apkgdown)
 
 <!-- badges: end -->
 
@@ -71,9 +71,10 @@ jsonlite::write_json(cite_data, ".zenodo.json",
 ## Learning Outcomes
 
 ```{r, include = FALSE}
-learning_outcomes <- c("implement recommended practices for file and folder organization in projects", 
+learning_outcomes <- c("implement file and folder organization in research projects", 
                        "use and apply file naming conventions", 
-                       "understand the principles of tidy data for structuring tabular data")
+                       "understand best practices in structuring data and metadata", 
+                       "share data in specialist and generalist repositories")
 outcomes_text <- paste0("* ", learning_outcomes, collapse = "\n")
 desc::desc_set("learningOutcomes", outcomes_text)
 ```

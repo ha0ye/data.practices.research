@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![GitHub Actions pkgdown
-workflow](https://github.com/ha0ye/data-practices-research/workflows/pkgdown/badge.svg)](https://github.com/ha0ye/data-practices-research/actions?query=workflow%3Apkgdown)
+workflow](https://github.com/ha0ye/data.practices.research/workflows/pkgdown/badge.svg)](https://github.com/ha0ye/data.practices.research/actions?query=workflow%3Apkgdown)
 
 <!-- badges: end -->
 
@@ -21,7 +21,7 @@ analysis, and sharing practices.
 
 By the end of the workshop, participants will be able to:
 
--   implement recommended practices for file and folder organization in
-    projects
+-   implement file and folder organization in research projects
 -   use and apply file naming conventions
--   understand the principles of tidy data for structuring tabular data
+-   understand best practices in structuring data and metadata
+-   share data in specialist and generalist repositories
