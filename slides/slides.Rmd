@@ -90,13 +90,13 @@ https://www.rc.ufl.edu/get-started/
 
 --
 
-1. You finished your paper draft and 2 weeks later your PI wants you to change one of the figures from a scatterplot to a histogram.
+1. You finished your paper draft and 3 weeks later your PI wants you to change one of the figures from a scatterplot to a histogram.
 
 --
-2. You submitted your paper and 2 months later, reviewers want a secondary analysis to check some propert of the data.
+2. You submitted your paper and 3 months later, reviewers want a secondary analysis to check some propert of the data.
 
 --
-3. You graduated and 2 years layer, you are writing a grant that will combine your data from a past project with what you are working on now.
+3. You graduated and 3 years layer, you are writing a grant that will combine your data from a past project with what you are working on now.
 
 ---
 
@@ -192,10 +192,11 @@ class: inverse, center, middle
 
 # Principles
 
-Choose names for file that:
-* are machine-readable
-* are human-readable
-* sort nicely
+* You will have LOTS of files.
+* You don't want to spend time opening them to find the right one.
+  - for a specific subset of data
+  - for a specific bit of code
+  - to make changes in just the right spot
 
 ---
 
@@ -224,9 +225,9 @@ yearly-report_2020-06-01_hy-comments.docx
 ---
 # Machine-Readable
 
-* Avoid spaces, punctuation, accented characters, mixing CAPS and lowercase.
-  - computers can struggle with these
-  - simple names are easier to remember
+* Avoid spaces, punctuation, accented characters, mixing upper and lowercase.
+  - some computers don't distinguish between `README` and `readme` (others do!)
+  - simpler names are easier to remember
 * Separate words with hyphens `'-'`
 * Separate groupings with underscores `'_'`
 
@@ -245,20 +246,12 @@ yearly-report_2020-06-01_hy-comments.docx
 
 # Using Default Ordering
 
-* Files can be sorted alphabetically (and usually)
+* Files are usually sorted alphabetically
   - we can make use of this!
 * Left-pad with numbers to impose an order on files:
   - e.g. `01_load-data.R`, `02_process-data.R`
 * Use RFC-3339 for dates:
   - `YYYY-MM-DD` format (alphabetical sorting makes it chronological, too!)
-
----
-class: center
-```{r out.width="60%", echo = FALSE}
-knitr::include_graphics("https://imgs.xkcd.com/comics/iso_8601_2x.png") 
-```
-
-[xkcd/1179](https://xkcd.com/1179/)
 
 ---
 
@@ -274,15 +267,21 @@ siteB_2020-05-01_weather.dat
 </pre>
 
 --
-files are organized by site -> date -> type of measurement
+
+filename format:
+
+` {site}_{date}_{type of data} `
 
 ---
 
 # Summary
 
-* you probably use names to organize files already!
-  - use these tips to improve your system
-* consistency is important!
+Choose names for file that:
+* don't cause issues for computer
+* are descriptive for humans
+* sort nicely
+
+Be consistent! (at least within an individual project)
 
 ---
 class: inverse, center, middle
@@ -296,7 +295,7 @@ class: inverse, center, middle
 Make it easy for anyone to work with your data:
 * Structure data for analysis (i.e. "Tidy Data")
 * Don't use text-formatting to store information!
-* Don't modify raw data
+* Keep a copy of raw data for reproducibility
 * Include a Data Dictionary
 
 ---
@@ -312,12 +311,13 @@ Properties of *tidy data*:
 
 # Common issues
 
-* data values are stored in column headers
+* storing data values in column headers
   - e.g. treatment values, dates of sampling
-* multiple variables are stored in one column
-* variables are stored in rows and columns
-* "1 observational unit = 1 table" is violated
-  - e.g. subject info and measurements are stored in the same table
+* storing variables in rows
+  - when adding more data, you should only increase # of rows  
+    (the columsn are fixed)
+* keeping too much data in one table
+  - e.g. different types of measurements
 
 ---
 
@@ -399,13 +399,13 @@ Instead of highlighting the cells with outliers, encode outlier status as its ow
 
 ---
 
-# Raw Data
+# Data Files
 
 * store raw data for reproducibility
-  - copy and modify files instead
+  - save a separate cleaned-up version
   - and/or use scripts to clean/wrangle raw data
 * document processing steps in code or text
-  - someone else can see what processing was done, and reproduce it
+  - someone else can reproduce your data workflow
   - OpenRefine is a great tool for cleaning messy data (and records the steps for you)!  
   https://uf-repro.github.io/OpenRefine-intro/
 
@@ -414,13 +414,12 @@ Instead of highlighting the cells with outliers, encode outlier status as its ow
 # Data Dictionary
 
 * define your rows and columns
-  - e.g. do rows correspond to:
+  - e.g. Are the rows ...
      + individual subjects
      + OR data collection sessions
      + OR individual samples from a measurement device
 * define codes, categories, acronyms
 * define relationships between multiple tables
-* [provide metadata details](https://guides.uflib.ufl.edu/datamanagement/metadata)
 
 ---
 
@@ -441,9 +440,123 @@ Instead of highlighting the cells with outliers, encode outlier status as its ow
 (modified from Figure 9 of Broman & Woo "Data Organization in Spreadsheets")
 
 ---
+class: inverse, center, middle
+
+# Sharing Data
+
+---
+# Principles
+
+* data sharing is becoming more standardized
+  - to be required by most Federal funders (if not already)
+* data sharing IS extra work
+  - but much less if you are already organized
+  - doing it WELL can increase your impact  
+    (other researchers can use it, or build collaborations based on shared use of data)
+
+---
+# FAIR
+
+* Guidelines for *Scientific Data*
+  (but which also apply to other outputs)
+  - Findable
+  - Accessible
+  - Interoperable
+  - Reusable
+
+---
+# Findable
+
+* Can humans and machines find the data?
+  - use metadata that *describes* the content
+  - use metadata that helps people *find* it
+  
+--
+
+**Metadata** is data that describes or gives information about other data
+
+e.g. _hashtags_ indicate that a tweet is about a particular subject (such as a conference), and enable others to easily find many tweets about that subject
+
+---
+# Accessible
+
+* there should be minimal barriers
+  - e.g. no proprietary interfaces or software required
+  - share your data in a dedicated repository
+* use established methods to authenticate access to protected or private data
+
+---
+# DOI = Digital Object Identifier
+
+* format
+  - `10.NNNN/{suffix}`
+  - `NNNN` identifies the registrant
+  - `{suffix}` identifies the object
+  - e.g. `10.5281/zenodo.3892183`
+---
+# DOI Properties
+
+* DOIs are permanent
+  - the object and metadata record are archived
+* unambiguous
+  - each DOI links to a unique object, and will only ever link to that object
+
+
+---
+# Interoperable
+
+* use a common, shared file format
+* use a data standard for organizing and structuring data
+  - it is possible that no such standard exists for your field!
+* use a metadata standard for attributes
+  - e.g. [Ecological Metadata Language](https://eml.ecoinformatics.org/)
+
+---
+# Reusable
+
+* help researchers identify whether it is suitable for their usage
+* use a legal license that enables re-use
+  - e.g. CC-BY or CC-0
+  - **don't use a code license**, e.g. MIT
+* include attribution and a description of how to cite the data
+
+---
+# FREE Repositories
+
+* Zenodo - https://zenodo.org/
+* figshare - https://figshare.com
+* OSF - https://osf.io/
+
+### Maybe free if covered by a journal
+* Dryad - https://datadryad.org
+
+---
+# GitHub
+
+GitHub is a platform designed primarily for collaborative open source software development.
+
+* Many researchers use it to store data or research projects, and to collaborate!  
+  https://uf-repro.github.io/friendly-github-intro/ 
+
+* GitHub is not **archival**.
+  - No guarantee for continued free access
+  - The owner of the data or code could change it, move it, or delete it 
+
+---
+# Summary
+
+When in doubt, look at example publications in your field!
+
+* What keywords did they use?
+* How did they structure the data?
+  - if the data is not tidy, you don't have to follow along
+  - using the same or similar column labels could be effective
+
+---
 
 # Thanks
 
-* Contact me for additional questions or consultation requests!
-* Check back in on the libguide for more modules and contact info:
-  - https://guides.uflib.ufl.edu/reproducibility
+* Contact me for additional questions or consultation requests.
+  - haoye@ufl.edu
+* Check my libguide for other lesson materials.
+  - https://guides.uflib.ufl.edu/reproducibility/lessons

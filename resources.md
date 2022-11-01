@@ -31,3 +31,12 @@
 
 * ["Spreadsheet Munging Strategies"](https://nacnudus.github.io/spreadsheet-munging-strategies/)
   - gitbook from Duncan Garmonsway on how to "munge" data that is NOT stored in a tidy spreadsheet
+  
+## Data Sharing
+
+* ["Generalist Repository Comparison Chart"](https://doi.org/10.5281/zenodo.3946719)
+  - Table comparing common geeneralist repositories for sharing data
+
+* [NIH "Repositories for Sharing Scientific Data"](https://sharing.nih.gov/data-management-and-sharing-policy/sharing-scientific-data/repositories-for-sharing-scientific-data)
+  - listing of data sharing repositories supported by NIH
+
