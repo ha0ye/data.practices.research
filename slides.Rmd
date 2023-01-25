@@ -93,7 +93,7 @@ https://www.rc.ufl.edu/get-started/
 1. You finished your paper draft and 3 weeks later your PI wants you to change one of the figures from a scatterplot to a histogram.
 
 --
-2. You submitted your paper and 3 months later, reviewers want a secondary analysis to check some propert of the data.
+2. You submitted your paper and 3 months later, reviewers want a secondary analysis to check some property of the data.
 
 --
 3. You graduated and 3 years layer, you are writing a grant that will combine your data from a past project with what you are working on now.
